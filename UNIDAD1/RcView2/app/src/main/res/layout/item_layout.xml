@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cv"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            >
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/idImagen"
+                android:src="@drawable/usuario"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                />
+
+                <TextView
+                    android:id="@+id/alumno_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Alumno"
+                    android:textSize="15dp"
+                    android:layout_toRightOf="@+id/idImagen"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/IdNumeroControl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="No.control"
+                    android:textSize="25dp"
+                    android:layout_toRightOf="@+id/idImagen"
+                    android:textStyle="normal"
+                    />
+
+                <TextView
+                    android:id="@+id/IdCarrera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:text="Carrera"
+                    android:textSize="15dp"
+                    android:layout_toRightOf="@+id/idImagen"
+                    android:textStyle="italic"
+                    />
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/idBasura"
+                android:src="@drawable/basura"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/IdNumeroControl"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="80dp"
+                />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
