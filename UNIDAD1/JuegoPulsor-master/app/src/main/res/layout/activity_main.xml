@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mx.edu.ittepic.pulsortarea2.MainActivity"
+    android:background="@drawable/fondo"
+    tools:layout_editor_absoluteY="81dp">
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="163dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:text=" "
+        android:textSize="30dp"
+        android:background="#2E9AFE"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="300dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtnumero" />
+
+    <TextView
+        android:id="@+id/txtnumero"
+        android:layout_width="91dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="116dp"
+        android:text="TextView"
+        android:textColor="#ff0000"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="87dp"
+        android:background="#08088A"
+        android:textColor="#ffff"
+        android:text="Nuevo intento"
+        app:layout_constraintBottom_toBottomOf="@id/btn1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       />
+
+
+</android.support.constraint.ConstraintLayout>
