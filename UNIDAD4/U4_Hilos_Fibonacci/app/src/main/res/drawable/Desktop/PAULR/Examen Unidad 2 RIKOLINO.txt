@@ -1,0 +1,149 @@
+###Tipos de clases para las subredes###
+1) clase a ---> 0 - 126 ---> "126.0.0.0"
+2) clase b ---> 128 - 191 ---> "172.16.0.0"
+3) clase c ---> 192 - 223 ---> "192.168.10.0
+
+### calculadora de subredes ###
+http://www.calculadora-redes.com/
+
+Primero Se Empieza con capa de acceso
+-------------------------------------
+
+en
+config t
+hostname SW_IZQUIERDO
+vlan 100
+vlan 200 
+int fa0/1
+sw mode acc 
+sw acc vlan 100 
+int fa0/2
+sw mode acc 
+sw acc vlan 200 
+
+en
+config t
+hostname SW_DERECHO
+vlan 101
+vlan 201
+int fa0/1
+sw mode acc 
+sw acc vlan 101 
+int fa0/2
+sw mode acc 
+sw acc vlan 201
+----------------------------------------------
+SWITCH MULTICAPA 
+**Dar de alta las vlan de la capa de acceso**
+----------------------------------------------
+
+en
+config t
+hostname SW_Distribuye 
+vlan 100 
+vlan 200 
+vlan 201 
+vlan 101
+vlan 220
+vlan 55
+int fa0/23
+sw mode acc 
+sw acc vlan 55 
+int vlan 100 
+ip add 172.16.100.1 255.255.255.0
+int vlan 101 
+ip add 172.16.101.1 255.255.255.0 
+int vlan 200 
+ip add 172.16.200.1 255.255.255.0 
+int vlan 201 
+ip add 172.16.201.1 255.255.255.0 
+int vlan 55 
+ip add 172.16.55.1 255.255.255.0 
+int vlan 220
+ip add 172.16.220.1 255.255.255.0
+
+ip routing 
+int fa0/24
+no switchport  
+ip add 192.168.50.1 255.255.255.252 
+
+#####Los Servidores No Se Excluyen********
+
+ip dhcp excluded-address 172.16.100.1 172.16.100.5
+ip dhcp excluded-address 172.16.101.1 172.16.101.5
+ip dhcp excluded-address 172.16.200.1 172.16.200.5
+ip dhcp excluded-address 172.16.201.1 172.16.201.5
+ip dhcp excluded-address 172.16.220.1 172.16.220.5
+
+
+ip dhcp pool VLAN100
+network 172.16.100.0 255.255.255.0 
+default-router 172.16.100.1
+dns-server 172.16.55.2
+ip dhcp pool VLAN101
+network 172.16.101.0 255.255.255.0 
+default-router 172.16.101.1
+dns-server 172.16.55.2
+ip dhcp pool VLAN200
+network 172.16.200.0 255.255.255.0 
+default-router 172.16.200.1
+dns-server 172.16.55.2
+ip dhcp pool VLAN201
+network 172.16.201.0 255.255.255.0 
+default-router 172.16.201.1
+dns-server 172.16.55.2
+ip dhcp pool VLAN220
+network 172.16.220.0 255.255.255.0 
+default-router 172.16.220.1
+dns-server 172.16.55.2
+
+
+-----------------------------------------------------
+Configurar Switch De Acceso(Abajo del switch de capa 3)
+------------------------------------------------------
+
+int g0/1 
+sw mode trunk 
+
+int g0/2
+sw mode trunk
+
+
+------------------------------------------------------
+ROUTER NUCLEO
+------------------------------------------------------
+
+en
+config t
+int g0/0
+ip add 192.168.50.2 255.255.255.252
+no shut
+int s0/0/0
+ip add 192.168.30.2 255.255.255.252
+no shut 
+
+router rip 
+version 2 
+network 10.10.10.0
+network 10.20.20.0
+network 10.30.30.0
+network 10.40.40.0
+network 10.50.50.0
+network 192.168.40.0
+
+------------------------------------------------------
+AMARRAR PUERTOS CON DIRECCIONES MAC 
+------------------------------------------------------
+***SOLO AMARRAR UNA DIRECCION MAC A UNA INTERFAZ***
+en 
+config t
+int fa0/1 
+sw port-security
+sw port-security mac-address 0090.2B44.1754
+do sh mac-adress-table
+***AMARRAR VARIAS DIRECCIONES MAC A UNA INTERFAZ***
+en
+config t
+int fa0/1 
+sw port-security maximun 2 
+sw port-security mac-address sticky  
