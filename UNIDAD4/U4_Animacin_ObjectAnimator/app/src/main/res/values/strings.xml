@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">U4_Animación_ObjectAnimator</string>
+    <string name="crecer">Crecer</string>
+    <string name="girar">Girar</string>
+    <string name="rebotar">Rebotar</string>
+    <string name="parpadeo">Parpadear</string>
+    <string name="ambos">Combinación</string>
+    <string name="fundirse">Fundirse</string>
+</resources>
