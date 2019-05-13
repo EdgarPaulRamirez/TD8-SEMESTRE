@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/faceIcon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/night"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnRun2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:onClick="onButtonClick2"
+                android:text="@string/girar"
+                android:background="#1B5AB2"/>
+            <Button
+                android:id="@+id/btnRun4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:onClick="onButtonClick5"
+                android:text="@string/ambos"
+                android:background="#1B5AB2"/>/>
+
+            <Button
+                android:id="@+id/btnRun3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:onClick="onButtonClick4"
+                android:text="@string/parpadeo"
+                android:background="#1B5AB2"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
